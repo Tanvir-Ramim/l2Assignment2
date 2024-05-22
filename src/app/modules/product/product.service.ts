@@ -1,7 +1,6 @@
-import { setDefaultAutoSelectFamilyAttemptTimeout } from "net";
+
 import { product } from "./product.interface";
 import { productModel } from "./product.model";
-import { ObjectId } from "mongoose";
 
 
 const createProductIntoDB=async(productDetails: product)=>{
@@ -50,10 +49,25 @@ const deleteProductIntoDB=async(id:string)=>{
 }
 
 
+const updateProductIntoDB=async(id:string,productDetails:object)=>{
+      const filter={_id: id}
+        
+      const result =await productModel.findByIdAndUpdate(filter,productDetails, {
+        new: true
+      })
+
+       
+      return result
+}
+
+
+
+
 
 export const ProductService={
     createProductIntoDB,
     getAllProductIntoDB,
     getOneProductIntoDB,
-    deleteProductIntoDB
+    deleteProductIntoDB,
+    updateProductIntoDB
 }

@@ -14,7 +14,7 @@ app.use('/api',ProductRoutes)
 
 app.get('/', (req: Request, res: Response) => {
  
-  res.send("runggin");
+  res.send("server is running");
 });
 
 export default app;
