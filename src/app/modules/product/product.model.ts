@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { product, tInventory, tVariants } from './product.interface';
 
 
@@ -19,10 +19,8 @@ const productSchema =new Schema<product>({
     price: {type: Number, required:true},
     category: {type: String, required:true},
     tags: {type: [String], required:true},
-    variants:[variantSchema,
-
-    ],
-
+    variants:[variantSchema],
+    
     inventory: {
         type: inventorySchema,
         required: true,
