@@ -49,7 +49,7 @@ const deleteProductIntoDB=async(id:string)=>{
 }
 
 
-const updateProductIntoDB=async(id:string,productDetails:object)=>{
+const updateProductIntoDB=async(id:string,productDetails:product)=>{
       const filter={_id: id}
         
       const result =await productModel.findByIdAndUpdate(filter,productDetails, {
