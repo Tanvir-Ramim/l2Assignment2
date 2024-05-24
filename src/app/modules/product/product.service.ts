@@ -44,7 +44,7 @@ const deleteProductIntoDB=async(id:string)=>{
 
     const result =await productModel.findByIdAndDelete(id)
 
-       return   result
+       return   null
      
 }
 
