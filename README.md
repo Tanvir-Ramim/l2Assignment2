@@ -23,3 +23,5 @@ npm run start:dev
 Linting
 To lint the TypeScript files in the src directory, run:
 
+npm run lint
+
