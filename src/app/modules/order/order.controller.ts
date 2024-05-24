@@ -31,7 +31,7 @@ const createOder = async (req: Request, res: Response) => {
 
           try
           {
-            const email:any=req.query.email
+            const email:string | undefined=req.query.email as string | undefined
             
             const result =await OrderService.getAllOrderIntoDB(email)
               

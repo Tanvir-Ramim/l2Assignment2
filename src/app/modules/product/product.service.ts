@@ -11,8 +11,8 @@ const createProductIntoDB=async(productDetails: product)=>{
 }
 
 
-const getAllProductIntoDB=async(searchValue:any)=>{
-     console.log(searchValue)
+const getAllProductIntoDB=async(searchValue:string | undefined)=>{
+
     let query: object
     if(searchValue){
       console.log("ass")

@@ -17,7 +17,7 @@ const createProduct = async (req: Request, res: Response) => {
       message: 'Product Successfully created',
       data: result,
     });
-  } catch (error:any) {
+  } catch (error) {
     console.log( error);
     if (error instanceof z.ZodError) {
       const firstErrorMessage = error.errors[0].message;
@@ -31,7 +31,7 @@ const createProduct = async (req: Request, res: Response) => {
 // get all product
 const getAllProduct = async (req: Request, res: Response) => {
   try {
-    const searchValue: any= req.query.searchTerm;
+    const searchValue: string | undefined= req.query.searchTerm as string | undefined
     
       const   result = await ProductService.getAllProductIntoDB(searchValue);
  
@@ -71,7 +71,7 @@ const getOneProduct = async (req: Request, res: Response) => {
 const  deleteProduct=async(req:Request, res: Response)=>{
       try{
             const id=req.params.productId
-            console.log(id);
+          
             const result=await ProductService.deleteProductIntoDB(id)
             res.status(200).json({
                 success:true,
