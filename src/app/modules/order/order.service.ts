@@ -41,6 +41,23 @@ const createOrderIntoDB=async(orderDetails: order)=>{
     
 }
 
+
+const getAllOrderIntoDB=async(email:string | undefined)=>{
+           let query
+           
+          if(email){
+          query={email : email}
+          }
+          else{
+             query={}
+          }
+
+     const result =await orderModel.find(query)
+
+     return result
+}
+
 export const OrderService={
-    createOrderIntoDB
+    createOrderIntoDB,
+    getAllOrderIntoDB
 }

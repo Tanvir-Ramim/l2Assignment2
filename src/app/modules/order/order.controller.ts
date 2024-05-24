@@ -12,6 +12,7 @@ const createOder = async (req: Request, res: Response) => {
       const result = await OrderService.createOrderIntoDB(zodParseData);
   
       res.status(200).json({
+        
         data: result,
       });
     } catch (error) {
@@ -25,7 +26,41 @@ const createOder = async (req: Request, res: Response) => {
     }
   };
 
+ const getAllOrder =async(req:Request , res: Response)=>{
+
+
+          try
+          {
+            const email:any=req.query.email
+            
+            const result =await OrderService.getAllOrderIntoDB(email)
+              
+             if(email){
+              return res.status(200).json({
+                success: true,
+               message: result.length>0 ? "Orders fetched successfully for user email!":  "Data not found",
+                data: result,
+              });
+             }
+             
+          return  res.status(200).json({
+             success: true,
+            message: "Orders fetched successfully!",
+             data: result,
+           });
+          }
+          catch{
+            res.status(404).json({
+              success: false,
+              message: "Product Not Found",
+            });
+          }
+ }
+
+
+
   export const OrderControllers = {
-     createOder
+     createOder,
+     getAllOrder
   };
   
